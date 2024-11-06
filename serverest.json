@@ -1,0 +1,12 @@
+[
+  {
+  "nome": "Yuri Pires",
+  "email": "yuri@qa.com.br",
+  "password": "teste",
+  "administrador": "true"
+},
+{
+  "message": "Cadastro realizado com sucesso",
+  "_id": "C6cSd4B1meM4rzmX"
+}
+]
