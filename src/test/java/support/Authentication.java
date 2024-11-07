@@ -1,13 +1,13 @@
 package support;
 
-import pojo.UserPojo;
+import serverest.User;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class Authentication {
   public String getAccessToken() {
-    UserPojo user = new UserPojo("yuri@qa.com.br", "teste");
+    User user = new User("yuri@qa.com.br", "teste");
 
     return given()
       .header("Content-Type", "application/json")
