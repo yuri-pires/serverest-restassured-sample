@@ -1,3 +1,4 @@
+@regression @smoke
 Feature: /products resource
 
   Search registered products, or as Administrator, manage the products
