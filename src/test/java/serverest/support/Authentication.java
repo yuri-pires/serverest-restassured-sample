@@ -1,4 +1,4 @@
-package support;
+package serverest.support;
 
 import serverest.User;
 

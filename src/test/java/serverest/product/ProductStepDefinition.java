@@ -1,6 +1,5 @@
 package serverest.product;
 
-import factory.ProductDataFactory;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import serverest.Product;
-import support.Authentication;
+import serverest.support.Authentication;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -27,14 +26,13 @@ public class ProductStepDefinition {
     assertThat(bearerToken, startsWith("Bearer"));
   }
 
-  @When("I Send a POST request to the products endpoint with a valid Product object")
-  public void send_a_post_request_to_the_products_endpoint_with_a_valid_product_object() {
-    Product sampleProduct = ProductDataFactory.createSampleProduct();
-    response = ProductRequests.createProduct(sampleProduct, bearerToken);
+  @When("I send a POST request to the products endpoint with a {productState} product")
+  public void i_send_a_post_request_to_the_products_endpoint_with_a_product(Product product) {
+    response = ProductRequests.createProduct(product, bearerToken);
   }
-
-  @Then("System should create a new Product")
-  public void system_should_create_a_new_product() {
+  
+  @Then("The system should create a new Product")
+  public void the_system_should_create_a_new_product() {
     response.then()
       .statusCode(is(201))
       .body("message", equalTo("Cadastro realizado com sucesso"));
